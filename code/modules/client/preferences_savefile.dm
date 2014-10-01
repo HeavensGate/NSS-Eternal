@@ -170,7 +170,7 @@
 	real_name		= reject_bad_name(real_name)
 	if(isnull(species)) species = "Human"
 	if(isnull(language)) language = "None"
-	if(isnull(spawnpoint)) spawnpoint = "Arrivals Shuttle"
+	if(isnull(spawnpoint)) spawnpoint = "¨Cryogenic Storage"
 	if(isnull(nanotrasen_relation)) nanotrasen_relation = initial(nanotrasen_relation)
 	if(!real_name) real_name = random_name(gender)
 	be_random_name	= sanitize_integer(be_random_name, 0, 1, initial(be_random_name))
