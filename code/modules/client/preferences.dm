@@ -51,9 +51,9 @@ datum/preferences
 	//character preferences
 	var/real_name						//our character's name
 	var/be_random_name = 0				//whether we are a random name every round
-	var/gender = MALE					//gender of character (well duh)
+	var/gender = FEMALE					//gender of character (well duh)
 	var/age = 30						//age of character
-	var/spawnpoint = "Arrivals Shuttle" //where this character will spawn (0-2).
+	var/spawnpoint = "Cryogenic Storage" //where this character will spawn (0-2).
 	var/b_type = "A+"					//blood type (not-chooseable)
 	var/underwear = 1					//underwear type
 	var/undershirt = 1					//undershirt type
@@ -1266,7 +1266,7 @@ datum/preferences
 							spawnkeys += S
 						var/choice = input(user, "Where would you like to spawn when latejoining?") as null|anything in spawnkeys
 						if(!choice || !spawntypes[choice])
-							spawnpoint = "Arrivals Shuttle"
+							spawnpoint = "Cryogenic Storage"
 							return
 						spawnpoint = choice
 
