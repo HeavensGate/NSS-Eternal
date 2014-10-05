@@ -25,6 +25,16 @@
 	playsound(get_turf(src.mob), S, 50, 0, 0)
 	feedback_add_details("admin_verb","PLS") //If you are copy-pasting this, ensure the 2nd parameter is unique to the new proc!
 
+client/proc/space_asshole()
+	set category = "Fun"
+	set name = "Space Asshole"
+
+	message_admins("[key_name_admin(usr)] has played the Space Asshole Hymn.", 1)
+	for(var/mob/M in world)
+		if(M.client)
+			if(M.client.midis)
+				M << 'sound/music/space_asshole.ogg'
+	feedback_add_details("admin_verb","PSA") //If you are copy-pasting this, ensure the 2nd parameter is unique to the new proc!
 
 /*
 /client/proc/cuban_pete()
