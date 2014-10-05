@@ -30,10 +30,9 @@ client/proc/space_asshole()
 	set name = "Space Asshole"
 
 	message_admins("[key_name_admin(usr)] has played the Space Asshole Hymn.", 1)
-	for(var/mob/M in world)
-		if(M.client)
-			if(M.client.midis)
-				M << 'sound/music/space_asshole.ogg'
+	for(var/mob/M in player_list)
+		if(M.client.prefs.toggles & SOUND_MIDI)
+			M << 'sound/music/space_asshole.ogg'
 	feedback_add_details("admin_verb","PSA") //If you are copy-pasting this, ensure the 2nd parameter is unique to the new proc!
 
 /*
