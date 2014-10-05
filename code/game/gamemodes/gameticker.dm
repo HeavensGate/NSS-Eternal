@@ -41,12 +41,17 @@ var/global/datum/controller/gameticker/ticker
 	login_music = pick(\
 	/*'sound/music/halloween/skeletons.ogg',\
 	'sound/music/halloween/halloween.ogg',\
-	'sound/music/halloween/ghosts.ogg'*/
+	'sound/music/halloween/ghosts.ogg'
 	'sound/music/space.ogg',\
 	'sound/music/traitor.ogg',\
 	'sound/music/title2.ogg',\
 	'sound/music/clouds.s3m',\
-	'sound/music/space_oddity.ogg') //Ground Control to Major Tom, this song is cool, what's going on?
+	'sound/music/space_oddity.ogg',\ //Ground Control to Major Tom, this song is cool, what's going on? */
+	'sound/music/highlander.ogg',\
+	'sound/music/klendathu.ogg',\
+	'sound/music/knights.ogg',\
+	'sound/music/nowyouman.ogg',\
+	'sound/music/therock.ogg',\)
 	do
 		pregame_timeleft = 180
 		world << "<B><FONT color='blue'>Welcome to the pre-game lobby!</FONT></B>"
