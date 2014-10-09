@@ -50,13 +50,13 @@ var/global/datum/controller/gameticker/ticker
 	'sound/music/klendathu.ogg',\
 	'sound/music/knights.ogg',\
 	'sound/music/nowyouman.ogg',\
-	'sound/music/therock.ogg',\*/
+	'sound/music/therock.ogg',\
+	'sound/music/lobby/Proud.ogg',\
+	'sound/music/lobby/happyplace.ogg',\*/
 	'sound/music/lobby/space_oddity.ogg',\
-	'sound/music/lobby/happyplace.ogg',\
 	'sound/music/lobby/ForestTheme.ogg',\
 	'sound/music/lobby/ForestCredits.ogg',\
 	'sound/music/lobby/NIN_Rightwhereitbelongs.ogg',\
-	'sound/music/lobby/Proud.ogg',\
 	'sound/music/lobby/Tron.ogg',\
 	'sound/music/lobby/techno.ogg')
 	do
