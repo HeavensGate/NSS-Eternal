@@ -104,16 +104,11 @@ var/religion_name = null
 
 	return station_name
 
-/proc/world_name(var/name)
-
-	station_name = name
-
-	if (config && config.server_name)
-		world.name = "[config.server_name]: [name]"
-	else
-		world.name = name
-
-	return name
+/proc/station_name()
+    if (station_name)
+        return station_name
+    else
+        return world_name("NSS Eternal")
 
 var/syndicate_name = null
 /proc/syndicate_name()
