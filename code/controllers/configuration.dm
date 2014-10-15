@@ -4,21 +4,21 @@
 
 	var/nudge_script_path = "nudge.py"  // where the nudge.py script is located
 
-	var/log_ooc = 1						// log OOC channel
-	var/log_access = 1					// log login/logout
-	var/log_say = 1 					// log client say
+	var/log_ooc = 0						// log OOC channel
+	var/log_access = 0					// log login/logout
+	var/log_say = 0 					// log client say
 	var/log_admin = 0					// log admin actions
 	var/log_debug = 1					// log debug output
-	var/log_game = 1					// log game events
-	var/log_vote = 1					// log voting
-	var/log_whisper = 1					// log client whisper
-	var/log_emote = 1					// log emotes
-	var/log_attack = 1					// log attack messages
-	var/log_adminchat = 1				// log admin chat messages
-	var/log_adminwarn = 1				// log warnings admins get about bomb construction and such
-	var/log_pda = 1						// log pda messages
-	var/log_hrefs = 1					// logs all links clicked in-game. Could be used for debugging and tracking down exploits
-	var/log_runtime = 1					// logs world.log to a file
+	var/log_game = 0					// log game events
+	var/log_vote = 0					// log voting
+	var/log_whisper = 0					// log client whisper
+	var/log_emote = 0					// log emotes
+	var/log_attack = 0					// log attack messages
+	var/log_adminchat = 0				// log admin chat messages
+	var/log_adminwarn = 0				// log warnings admins get about bomb construction and such
+	var/log_pda = 0						// log pda messages
+	var/log_hrefs = 0					// logs all links clicked in-game. Could be used for debugging and tracking down exploits
+	var/log_runtime = 0					// logs world.log to a file
 	var/sql_enabled = 1					// for sql switching
 	var/allow_admin_ooccolor = 0		// Allows admins with relevant permissions to have their own ooc colour
 	var/allow_vote_restart = 0 			// allow votes to restart
