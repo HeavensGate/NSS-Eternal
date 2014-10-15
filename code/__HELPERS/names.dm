@@ -50,7 +50,8 @@ var/religion_name = null
     if (station_name)
         return station_name
     else
-        return world_name("NSS Eternal")
+        return station_name("NSS Eternal")
+		return world_name("NSS Eternal")
 
 var/syndicate_name = null
 /proc/syndicate_name()
