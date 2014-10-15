@@ -18,7 +18,7 @@
 	speech_verb = "hisses"
 	colour = "soghun"
 	key = "o"
-	flags = 0
+	flags = WHITELISTED
 
 /datum/language/tajaran
 	name = "Siik'tajr"
@@ -26,7 +26,7 @@
 	speech_verb = "mrowls"
 	colour = "tajaran"
 	key = "j"
-	flags = 0
+	flags = WHITELISTED
 
 /datum/language/skrell
 	name = "Skrellian"
@@ -34,7 +34,7 @@
 	speech_verb = "warbles"
 	colour = "skrell"
 	key = "k"
-	flags = 0
+	flags = WHITELISTED
 
 /datum/language/vox
 	name = "Vox-pidgin"
