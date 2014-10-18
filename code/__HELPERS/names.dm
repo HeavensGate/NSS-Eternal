@@ -47,7 +47,7 @@ var/religion_name = null
 	return "Nyx"
 
 /proc/station_name()
-    return station_name("NSS Eternal")
+    return "NSS Eternal"
 
 var/syndicate_name = null
 /proc/syndicate_name()
