@@ -77,7 +77,7 @@
 	var/disable_player_mice = 0
 	var/uneducated_mice = 0 //Set to 1 to prevent newly-spawned mice from understanding human speech
 
-	var/usealienwhitelist = 1
+	var/usealienwhitelist = 0
 	var/limitalienplayers = 0
 	var/alien_to_human_ratio = 0.5
 
@@ -342,7 +342,7 @@
 					guests_allowed = 0
 
 				if ("usewhitelist")
-					config.usewhitelist = 1
+					config.usewhitelist = 0
 
 				if ("feature_object_spell_system")
 					config.feature_object_spell_system = 1
@@ -437,7 +437,7 @@
 					automute_on = 1
 
 				if("usealienwhitelist")
-					usealienwhitelist = 1
+					usealienwhitelist = 0
 
 				if("alien_player_ratio")
 					limitalienplayers = 1
