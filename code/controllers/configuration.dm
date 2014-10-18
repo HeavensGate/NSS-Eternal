@@ -77,7 +77,7 @@
 	var/disable_player_mice = 0
 	var/uneducated_mice = 0 //Set to 1 to prevent newly-spawned mice from understanding human speech
 
-	var/usealienwhitelist = 0
+	var/usealienwhitelist = 1
 	var/limitalienplayers = 0
 	var/alien_to_human_ratio = 0.5
 
