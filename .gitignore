@@ -5,4 +5,5 @@
 *.dmb
 *.lk
 data/
+.gitignore
 
