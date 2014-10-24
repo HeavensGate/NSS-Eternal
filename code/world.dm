@@ -282,17 +282,11 @@ var/world_topic_spam_protect_time = world.timeofday
 		s += "<b>[config.server_name]</b> &#8212; "
 
 	s += "[station_name()]";
-	s += "<b>[ "
-	s += "Cosmic Horror/Sci-fi Thriller"
-	s += " ] "
-	s += " [ "
-	s += "Mid-High RP"
-	s += " ] "
-	s += " [ "
-	s += "Mature content"
-	s += " ]</b>"
+	s += "<b> {Cosmic Horror/Sci-fi Thriller} "
+	s += "{Mid-High RP} "
+	s += "{Mature content}</b>"
 	s += " ("
-	s += "<a href=\"http://www.heavensgatestation.com/">" //Change this to wherever you want the hub to link to.
+	s += "<a href=\"http://www.heavensgatestation.com/\">" //Change this to wherever you want the hub to link to.
 //	s += "[game_version]"
 	s += "Forums";  //Replace this with something else. Or ever better, delete it and uncomment the game version.
 	s += "</a>";
