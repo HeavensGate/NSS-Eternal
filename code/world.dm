@@ -281,19 +281,22 @@ var/world_topic_spam_protect_time = world.timeofday
 	if (config && config.server_name)
 		s += "<b>[config.server_name]</b> &#8212; "
 
-	s += "<b>[station_name()]</b>";
+	s += "[station_name()]";
+	s += "<b> {Cosmic Horror/Sci-fi Thriller} "
+	s += "{Mid-High RP} "
+	s += "{Mature content}</b>"
 	s += " ("
-	s += "<a href=\"http://\">" //Change this to wherever you want the hub to link to.
+	s += "<a href=\"http://www.heavensgatestation.com/\">" //Change this to wherever you want the hub to link to.
 //	s += "[game_version]"
-	s += "Default"  //Replace this with something else. Or ever better, delete it and uncomment the game version.
-	s += "</a>"
-	s += ")"
+	s += "Forums";  //Replace this with something else. Or ever better, delete it and uncomment the game version.
+	s += "</a>";
+	s += ")";
 
 	var/list/features = list()
 
 	if(ticker)
 		if(master_mode)
-			features += master_mode
+			features += "secret" // Sets to always secret, even if it's flippin' extended. Rename "secret" to master_mode (yes, remove the quotes) to revert so people can see if a gamemode has been voted forth or forced in action by server or admin.
 	else
 		features += "<b>STARTING</b>"
 
@@ -314,21 +317,21 @@ var/world_topic_spam_protect_time = world.timeofday
 			n++
 
 	if (n > 1)
-		features += "~[n] players"
+		features += "~[n] crew"
 	else if (n > 0)
-		features += "~[n] player"
+		features += "~[n] crew"
 
 	/*
 	is there a reason for this? the byond site shows 'hosted by X' when there is a proper host already.
 	if (host)
-		features += "hosted by <b>[host]</b>"
+		features += "hosted by [host]"
 	*/
 
 	if (!host && config && config.hostedby)
-		features += "hosted by <b>[config.hostedby]</b>"
+		features += "hosted by [config.hostedby]"
 
 	if (features)
-		s += ": [list2text(features, ", ")]"
+		s += ":<i> [list2text(features, ", ")]</i>"
 
 	/* does this help? I do not know */
 	if (src.status != s)
