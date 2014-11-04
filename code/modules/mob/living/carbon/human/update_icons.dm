@@ -273,8 +273,8 @@ proc/get_damage_icon_part(damage_state, body_part)
 		//Robotic limbs are handled in get_icon() so all we worry about are missing or dead limbs.
 		//No icon stored, so we need to start with a basic one.
 		var/datum/organ/external/chest = get_organ("chest")
-		base_icon = chest.get_icon(g)
-		
+		base_icon = chest.get_icon(g,fat)
+
 		if(chest.status & ORGAN_DEAD)
 			base_icon.ColorTone(necrosis_color_mod)
 			base_icon.SetIntensity(0.7)
@@ -287,7 +287,7 @@ proc/get_damage_icon_part(damage_state, body_part)
 				continue
 
 			if (istype(part, /datum/organ/external/groin) || istype(part, /datum/organ/external/head))
-				temp = part.get_icon(g)
+				temp = part.get_icon(g,fat)
 			else
 				temp = part.get_icon()
 
@@ -448,7 +448,7 @@ proc/get_damage_icon_part(damage_state, body_part)
 				add_image = 1
 	for(var/mut in mutations)
 		switch(mut)
-			/*
+
 			if(HULK)
 				if(fat)
 					standing.underlays	+= "hulk_[fat]_s"
@@ -461,7 +461,7 @@ proc/get_damage_icon_part(damage_state, body_part)
 			if(TK)
 				standing.underlays	+= "telekinesishead[fat]_s"
 				add_image = 1
-			*/
+
 			if(LASER)
 				standing.overlays	+= "lasereyes_s"
 				add_image = 1
@@ -476,9 +476,6 @@ proc/get_damage_icon_part(damage_state, body_part)
 	var/fat
 	if( FAT in mutations )
 		fat = "fat"
-//	var/g = "m"
-//	if (gender == FEMALE)	g = "f"
-//BS12 EDIT
 	var/skeleton = (SKELETON in src.mutations)
 	if(skeleton)
 		race_icon = 'icons/mob/human_races/r_skeleton.dmi'
@@ -550,12 +547,15 @@ proc/get_damage_icon_part(damage_state, body_part)
 		if(!t_color)		t_color = icon_state
 		var/image/standing	= image("icon_state" = "[t_color]_s")
 
-		if(w_uniform.icon_override)
-			standing.icon = w_uniform.icon_override
-		else if(w_uniform.sprite_sheets && w_uniform.sprite_sheets[species.name])
-			standing.icon = w_uniform.sprite_sheets[species.name]
+		if(FAT in mutations)
+			if(w_uniform.flags&ONESIZEFITSALL)
+				standing.icon	= 'icons/mob/uniform_fat.dmi'
+			else
+				src << "\red You burst out of \the [w_uniform]!"
+				drop_from_inventory(w_uniform)
+				return
 		else
-			standing.icon = 'icons/mob/uniform.dmi'
+			standing.icon	= 'icons/mob/uniform.dmi'
 
 		if(w_uniform.blood_DNA)
 			var/image/bloodsies	= image("icon" = 'icons/effects/blood.dmi', "icon_state" = "uniformblood")
@@ -755,15 +755,22 @@ proc/get_damage_icon_part(damage_state, body_part)
 	if(update_icons)   update_icons()
 
 
+
 /mob/living/carbon/human/update_inv_wear_suit(var/update_icons=1)
 	if( wear_suit && istype(wear_suit, /obj/item/clothing/suit) )	//TODO check this
 		wear_suit.screen_loc = ui_oclothing	//TODO
-
 		var/image/standing
 		if(wear_suit.icon_override)
 			standing = image("icon" = wear_suit.icon_override, "icon_state" = "[wear_suit.icon_state]")
 		else if(wear_suit.sprite_sheets && wear_suit.sprite_sheets[species.name])
 			standing = image("icon" = wear_suit.sprite_sheets[species.name], "icon_state" = "[wear_suit.icon_state]")
+		else if(FAT in mutations)
+			if(wear_suit.flags&ONESIZEFITSALL)
+				standing = image("icon" = 'icons/mob/suit_fat.dmi', "icon_state" = "[wear_suit.icon_state]")
+			else
+				src << "\red You burst out of \the [wear_suit]!"
+				drop_from_inventory(wear_suit)
+				return
 		else
 			standing = image("icon" = 'icons/mob/suit.dmi', "icon_state" = "[wear_suit.icon_state]")
 

@@ -809,6 +809,7 @@ var/list/datum/dna/hivemind_bank = list()
 	set category = "Changeling"
 	set name = "Unfat sting (5)"
 	set desc = "Sting target"
+	var/powername = "Unfat sting"
 
 	var/mob/living/carbon/T = changeling_sting(5,/mob/proc/changeling_unfat_sting)
 	if(!T)	return 0
@@ -816,6 +817,10 @@ var/list/datum/dna/hivemind_bank = list()
 	T.overeatduration = 0
 	T.nutrition -= 100
 	feedback_add_details("changeling_powers","US")
+	T.attack_log += text("\[[time_stamp()]\] <font color='orange'>Has been stug by [powername] used by [usr.name] ([usr.ckey])</font>")
+	usr.attack_log += text("\[[time_stamp()]\] <font color='red'>Used [powername] on [T.name] ([T.ckey])</font>")
+	log_attack("[usr.name] ([usr.ckey]) Used [powername] on [T.name] ([T.ckey])")
+	msg_admin_attack("[key_name(usr)] Used [powername] on [T.name] ([T.ckey]).")
 	return 1
 
 /mob/proc/changeling_DEATHsting()

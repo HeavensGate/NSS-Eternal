@@ -77,12 +77,13 @@
 	XRAYBLOCK          = getAssignedBlock("XRAY",          numsToAssign, DNA_HARDER_BOUNDS)
 	CLUMSYBLOCK        = getAssignedBlock("CLUMSY",        numsToAssign)
 	FAKEBLOCK          = getAssignedBlock("FAKE",          numsToAssign)
+	FATBLOCK 		   = getAssignedBlock("FAT",           numsToAssign)
 
-	// UNUSED!
+	// Some are used now man !
 	//COUGHBLOCK         = getAssignedBlock("COUGH",         numsToAssign)
 	//GLASSESBLOCK       = getAssignedBlock("GLASSES",       numsToAssign)
-	//EPILEPSYBLOCK      = getAssignedBlock("EPILEPSY",      numsToAssign)
-	//TWITCHBLOCK        = getAssignedBlock("TWITCH",        numsToAssign)
+	EPILEPSYBLOCK      = getAssignedBlock("EPILEPSY",      numsToAssign)
+	TWITCHBLOCK        = getAssignedBlock("TWITCH",        numsToAssign)
 	//NERVOUSBLOCK       = getAssignedBlock("NERVOUS",       numsToAssign)
 
 	// Bay muts (UNUSED)
