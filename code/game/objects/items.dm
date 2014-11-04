@@ -53,14 +53,14 @@
 	Works similarly to worn sprite_sheets, except the alternate sprites are used when the clothing/refit_for_species() proc is called.
 	*/
 	var/list/sprite_sheets_obj = null
-	
+
 	//Inhand is not as big a deal as the object sprites, so I'm not sure if these are worth the extra vars.
 	//Maybe in the future:
 	//var/list/sprite_sheets_inhand_l = null
 	//var/list/sprite_sheets_inhand_r = null
 	//var/icon_l_hand = 'icons/mob/items_lefthand.dmi'
 	//var/icon_r_hand = 'icons/mob/items_righthand.dmi'
-	
+
 /obj/item/device
 	icon = 'icons/obj/device.dmi'
 
@@ -270,6 +270,13 @@
 		//START HUMAN
 		var/mob/living/carbon/human/H = M
 
+		if(istype(src, /obj/item/clothing/under) || istype(src, /obj/item/clothing/suit))
+			if(FAT in H.mutations)
+				if(!(flags & ONESIZEFITSALL))
+					if(!disable_warning)
+						H << "\red You're too fat to wear the [name]."
+					return 0
+
 		switch(slot)
 			if(slot_l_hand)
 				if(H.l_hand)
@@ -352,10 +359,15 @@
 					return 0
 				return 1
 			if(slot_w_uniform)
-				if(H.w_uniform)
-					return 0
 				if( !(slot_flags & SLOT_ICLOTHING) )
 					return 0
+				if((FAT in H.mutations) && !(flags & ONESIZEFITSALL))
+					return 0
+				if(H.w_uniform)
+					if(H.w_uniform.canremove)
+						return 2
+					else
+						return 0
 				return 1
 			if(slot_wear_id)
 				if(H.wear_id)

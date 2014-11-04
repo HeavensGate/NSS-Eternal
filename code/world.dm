@@ -317,9 +317,9 @@ var/world_topic_spam_protect_time = world.timeofday
 			n++
 
 	if (n > 1)
-		features += "~[n] crew"
+		features += "~[n] crew members"//more then one person sorry had to do this :3
 	else if (n > 0)
-		features += "~[n] crew"
+		features += "~[n] crew member"//one person is on the server
 
 	/*
 	is there a reason for this? the byond site shows 'hosted by X' when there is a proper host already.

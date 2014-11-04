@@ -66,6 +66,7 @@ var/HALLUCINATIONBLOCK = 0
 var/NOPRINTSBLOCK = 0
 var/SHOCKIMMUNITYBLOCK = 0
 var/SMALLSIZEBLOCK = 0
+var/FATBLOCK = 0
 
 var/skipupdate = 0
 	///////////////
