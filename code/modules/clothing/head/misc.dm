@@ -243,3 +243,16 @@
 	flags = FPRINT | TABLEPASS | BLOCKHAIR
 	flags_inv = HIDEMASK|HIDEEARS|HIDEEYES|HIDEFACE
 	siemens_coefficient = 2.0
+
+/obj/item/clothing/head/papercrown
+	name = "Paper Crown"
+	desc = "A Paper Crown. Long Live The King!"
+	icon_state = "papercrown"
+	item_state = "papercrown"
+
+//Paper flower hat thingy stuff
+/obj/item/clothing/head/paperflower
+	name = "paper flower"
+	desc = "A Paper Flower. To put in your hair."
+	icon_state = "paperFlower_H"
+	item_state = "paperFlower_H"
