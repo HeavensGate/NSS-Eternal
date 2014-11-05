@@ -16,9 +16,11 @@
 			level = SEC_LEVEL_RED
 		if("delta")
 			level = SEC_LEVEL_DELTA
+		if("gamma")
+			level = SEC_LEVEL_GAMMA
 
 	//Will not be announced if you try to set to the same level as it already is
-	if(level >= SEC_LEVEL_GREEN && level <= SEC_LEVEL_DELTA && level != security_level)
+	if(level >= SEC_LEVEL_GREEN && level <= SEC_LEVEL_GAMMA && level != security_level)
 		switch(level)
 			if(SEC_LEVEL_GREEN)
 				world << "<font size=4 color='red'>Attention! Security level lowered to green</font>"
@@ -67,6 +69,14 @@
 					if(FA.z == 1 || FA.z == 5)
 						FA.overlays = list()
 						FA.overlays += image('icons/obj/monitors.dmi', "overlay_delta")
+			if(SEC_LEVEL_GAMMA)
+				world << "<font size=4 color='red'>Attention! Gamma security level reached!</font>"
+				world << "<font color='red'>[config.alert_desc_gamma]</font>"
+				security_level = SEC_LEVEL_GAMMA
+				for(var/obj/machinery/firealarm/FA in machines)
+					if(FA.z == 1 || FA.z == 5)
+						FA.overlays = list()
+						FA.overlays += image('icons/obj/monitors.dmi', "overlay_delta")
 	else
 		return
 
@@ -80,6 +90,8 @@
 			return "red"
 		if(SEC_LEVEL_DELTA)
 			return "delta"
+		if(SEC_LEVEL_GAMMA)
+			return "gamma"
 
 /proc/num2seclevel(var/num)
 	switch(num)
@@ -91,6 +103,8 @@
 			return "red"
 		if(SEC_LEVEL_DELTA)
 			return "delta"
+		if(SEC_LEVEL_GAMMA)
+			return "gamma"
 
 /proc/seclevel2num(var/seclevel)
 	switch( lowertext(seclevel) )
@@ -102,15 +116,5 @@
 			return SEC_LEVEL_RED
 		if("delta")
 			return SEC_LEVEL_DELTA
-
-
-/*DEBUG
-/mob/verb/set_thing0()
-	set_security_level(0)
-/mob/verb/set_thing1()
-	set_security_level(1)
-/mob/verb/set_thing2()
-	set_security_level(2)
-/mob/verb/set_thing3()
-	set_security_level(3)
-*/
+		if("gamma")
+			return SEC_LEVEL_GAMMA
