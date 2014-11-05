@@ -5,6 +5,10 @@
 	if(!holder)
 		src << "Only administrators may use this command."
 		return
+
+	if(alert("This will destroy the station with a nuke. Are you sure you wish to kill everyone?",,"Yes","No")=="No")
+		return
+
 	if(!ticker)
 		alert("huh...what are you doing...the game hasn't even started yet...")
 		return
