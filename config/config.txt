@@ -116,7 +116,7 @@ ALLOW_ADMIN_OOCCOLOR
 ALLOW_VOTE_RESTART
 
 ## allow players to initate a mode-change start
-#ALLOW_VOTE_MODE
+ALLOW_VOTE_MODE
 
 ## min delay (deciseconds) between voting sessions (default 10 minutes)
 VOTE_DELAY 6000
@@ -131,7 +131,7 @@ VOTE_AUTOTRANSFER_INITIAL 7200
 VOTE_AUTOTRANSFER_INTERVAL 72000
 
 ## Time left (seconds) before round start when automatic gamemote vote is called (default 100).
-VOTE_AUTOGAMEMODE_TIMELEFT 100
+VOTE_AUTOGAMEMODE_TIMELEFT 400
 
 ## prevents dead players from voting or starting votes
 #NO_DEAD_VOTE
