@@ -3,13 +3,17 @@
 	set name = "Who"
 	set category = "OOC"
 
-	var/msg = "<b>Current Players:</b>\n"
+	var/msg = "<b>Current Crew:</b>\n"
 
 	var/list/Lines = list()
+	for(var/client/C in clients)
+		var/entry = ""
+		if(C.holder && !C.holder.fakekey)
+			entry = "<b><font color='#FF8000'>{Staff}</font> --</b> [C.key]"//#FF8000 Orange for Pdactyl ;3
+		else
+			entry = "<b><font color='#045FB4'>{Player}</font> --</b> [C.key]"//#045FB4 Blueish
 
-	if(holder && (R_ADMIN & holder.rights || R_MOD & holder.rights))
-		for(var/client/C in clients)
-			var/entry = "\t[C.key]"
+		if(holder && (R_ADMIN & holder.rights || R_MOD & holder.rights))
 			if(C.holder && C.holder.fakekey)
 				entry += " <i>(as [C.holder.fakekey])</i>"
 			entry += " - Playing as [C.mob.real_name]"
@@ -28,18 +32,12 @@
 			if(is_special_character(C.mob))
 				entry += " - <b><font color='red'>Antagonist</font></b>"
 			entry += " (<A HREF='?_src_=holder;adminmoreinfo=\ref[C.mob]'>?</A>)"
-			Lines += entry
-	else
-		for(var/client/C in clients)
-			if(C.holder && C.holder.fakekey)
-				Lines += C.holder.fakekey
-			else
-				Lines += C.key
+		Lines += entry
 
 	for(var/line in sortList(Lines))
 		msg += "[line]\n"
 
-	msg += "<b>Total Players: [length(Lines)]</b>"
+	msg += "<b>Total Crew: [length(Lines)]</b>"
 	src << msg
 
 /client/verb/staffwho()

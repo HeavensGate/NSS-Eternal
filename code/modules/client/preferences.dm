@@ -298,8 +298,7 @@ datum/preferences
 		dat += "Secondary Language:<br><a href='byond://?src=\ref[user];preference=language;task=input'>[language]</a><br>"
 		dat += "Blood Type: <a href='byond://?src=\ref[user];preference=b_type;task=input'>[b_type]</a><br>"
 		dat += "Skin Tone: <a href='?_src_=prefs;preference=s_tone;task=input'>[-s_tone + 35]/220<br></a>"
-		//dat += "Skin pattern: <a href='byond://?src=\ref[user];preference=skin_style;task=input'>Adjust</a><br>"
-		dat += "Needs Glasses: <a href='?_src_=prefs;preference=disabilities'><b>[disabilities == 0 ? "No" : "Yes"]</b></a><br>"
+		dat += "Disabilities: <a href='?_src_=prefs;preference=disabilities'>Adjust</a><br>"
 		dat += "Limbs: <a href='byond://?src=\ref[user];preference=limbs;task=input'>Adjust</a><br>"
 		dat += "Internal Organs: <a href='byond://?src=\ref[user];preference=organs;task=input'>Adjust</a><br>"
 
@@ -533,21 +532,26 @@ datum/preferences
 		user << browse(HTML, "window=mob_occupation;size=[width]x[height]")
 		return
 
+	proc/ShowDisabilityState(mob/user,flag,label)
+		if(flag==DISABILITY_FLAG_FAT && species!=("Human"))
+			return "<li><i>[species] cannot be fat.</i></li>"
+		return "<li><b>[label]:</b> <a href=\"?_src_=prefs;task=input;preference=disabilities;disability=[flag]\">[disabilities & flag ? "Yes" : "No"]</a></li>"
+
 	proc/SetDisabilities(mob/user)
 		var/HTML = "<body>"
-		HTML += "<tt><center>"
-		HTML += "<b>Choose disabilities</b><br>"
 
-		HTML += "Need Glasses? <a href=\"byond://?src=\ref[user];preferences=1;disabilities=0\">[disabilities & (1<<0) ? "Yes" : "No"]</a><br>"
-		HTML += "Seizures? <a href=\"byond://?src=\ref[user];preferences=1;disabilities=1\">[disabilities & (1<<1) ? "Yes" : "No"]</a><br>"
-		HTML += "Coughing? <a href=\"byond://?src=\ref[user];preferences=1;disabilities=2\">[disabilities & (1<<2) ? "Yes" : "No"]</a><br>"
-		HTML += "Tourettes/Twitching? <a href=\"byond://?src=\ref[user];preferences=1;disabilities=3\">[disabilities & (1<<3) ? "Yes" : "No"]</a><br>"
-		HTML += "Nervousness? <a href=\"byond://?src=\ref[user];preferences=1;disabilities=4\">[disabilities & (1<<4) ? "Yes" : "No"]</a><br>"
-		HTML += "Deafness? <a href=\"byond://?src=\ref[user];preferences=1;disabilities=5\">[disabilities & (1<<5) ? "Yes" : "No"]</a><br>"
+		HTML += {"<tt><center>
+			<b>Choose disabilities</b><ul>"}
 
-		HTML += "<br>"
-		HTML += "<a href=\"byond://?src=\ref[user];preferences=1;disabilities=-2\">\[Done\]</a>"
-		HTML += "</center></tt>"
+		HTML += ShowDisabilityState(user,DISABILITY_FLAG_NEARSIGHTED,"Needs Glasses")
+		HTML += ShowDisabilityState(user,DISABILITY_FLAG_FAT,"Obese")
+		HTML += ShowDisabilityState(user,DISABILITY_FLAG_EPILEPSY,"Seizures")
+		HTML += ShowDisabilityState(user,DISABILITY_FLAG_DEAF,"Deaf")
+
+		HTML += {"</ul>
+			<a href=\"?_src_=prefs;task=close;preference=disabilities\">\[Done\]</a>
+			<a href=\"?_src_=prefs;task=reset;preference=disabilities\">\[Reset\]</a>
+			</center></tt>"}
 
 		user << browse(null, "window=preferences")
 		user << browse(HTML, "window=disabil;size=350x300")
@@ -806,6 +810,24 @@ datum/preferences
 			else
 				SetSkills(user)
 			return 1
+		else if(href_list["preference"] == "disabilities")
+
+			switch(href_list["task"])
+				if("close")
+					user << browse(null, "window=disabil")
+					ShowChoices(user)
+				if("reset")
+					disabilities=0
+					SetDisabilities(user)
+				if("input")
+					var/dflag=text2num(href_list["disability"])
+					if(dflag >= 0)
+						if(!(dflag==DISABILITY_FLAG_FAT && species!=("Human" || "Tajaran")))
+							disabilities ^= text2num(href_list["disability"]) //MAGIC
+					SetDisabilities(user)
+				else
+					SetDisabilities(user)
+			return 1
 
 		else if(href_list["preference"] == "records")
 			if(text2num(href_list["record"]) >= 1)
@@ -946,8 +968,6 @@ datum/preferences
 						b_skin = rand(0,255)
 					if("bag")
 						backbag = rand(1,4)
-					/*if("skin_style")
-						h_style = random_skin_style(gender)*/
 					if("all")
 						randomize_appearance_for()	//no params needed
 			if("input")
@@ -1172,15 +1192,6 @@ datum/preferences
 							msg = html_encode(msg)
 
 							flavor_text = msg
-
-					if("disabilities")
-						if(text2num(href_list["disabilities"]) >= -1)
-							if(text2num(href_list["disabilities"]) >= 0)
-								disabilities ^= (1<<text2num(href_list["disabilities"])) //MAGIC
-							SetDisabilities(user)
-							return
-						else
-							user << browse(null, "window=disabil")
 
 					if("limbs")
 						var/limb_name = input(user, "Which limb do you want to change?") as null|anything in list("Left Leg","Right Leg","Left Arm","Right Arm","Left Foot","Right Foot","Left Hand","Right Hand")
@@ -1423,6 +1434,15 @@ datum/preferences
 				I.mechanize()
 
 			else continue
+
+		if(disabilities & DISABILITY_FLAG_FAT && character.species.flags & CAN_BE_FAT)//character.species.flags & CAN_BE_FAT)
+			character.mutations += FAT
+		if(disabilities & DISABILITY_FLAG_NEARSIGHTED)
+			character.disabilities|=NEARSIGHTED
+		if(disabilities & DISABILITY_FLAG_EPILEPSY)
+			character.disabilities|=EPILEPSY
+		if(disabilities & DISABILITY_FLAG_DEAF)
+			character.sdisabilities|=DEAF
 
 		// Wheelchair necessary?
 		var/datum/organ/external/l_foot = character.get_organ("l_foot")

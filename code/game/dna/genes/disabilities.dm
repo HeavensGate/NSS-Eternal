@@ -127,3 +127,13 @@
 
 	New()
 		block=GLASSESBLOCK
+
+/datum/dna/gene/disability/fat
+	name = "Obesity"
+	desc = "Greatly slows the subject's metabolism, enabling greater buildup of lipid tissue."
+	activation_message = "You feel blubbery and lethargic!"
+	deactivation_message = "You feel fit!"
+	disability=FAT
+
+	New()
+		block=FATBLOCK

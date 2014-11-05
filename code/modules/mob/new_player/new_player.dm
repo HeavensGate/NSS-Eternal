@@ -422,10 +422,21 @@
 		new_character.dna.ready_dna(new_character)
 		new_character.dna.b_type = client.prefs.b_type
 
-		if(client.prefs.disabilities)
-			// Set defer to 1 if you add more crap here so it only recalculates struc_enzymes once. - N3X
-			new_character.dna.SetSEState(GLASSESBLOCK,1,0)
+		if(client.prefs.disabilities & DISABILITY_FLAG_NEARSIGHTED)
+			new_character.dna.SetSEState(GLASSESBLOCK,1,1)
 			new_character.disabilities |= NEARSIGHTED
+
+		if(client.prefs.disabilities & DISABILITY_FLAG_FAT)
+			new_character.mutations += FAT
+			new_character.overeatduration = 600 // Max overeat
+
+		if(client.prefs.disabilities & DISABILITY_FLAG_EPILEPSY)
+			new_character.dna.SetSEState(EPILEPSYBLOCK,1,1)
+			new_character.disabilities |= EPILEPSY
+
+		if(client.prefs.disabilities & DISABILITY_FLAG_DEAF)
+			new_character.dna.SetSEState(DEAFBLOCK,1,1)
+			new_character.sdisabilities |= DEAF
 
 		// And uncomment this, too.
 		//new_character.dna.UpdateSE()
