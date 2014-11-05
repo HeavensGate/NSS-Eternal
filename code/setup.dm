@@ -307,6 +307,13 @@ var/MAX_EXPLOSION_RANGE = 14
 #define ELECTRICITY		(1<<19)	// ability to shoot electric attacks (15%)
 
 
+// Used in preferences.
+#define DISABILITY_FLAG_NEARSIGHTED 1
+#define DISABILITY_FLAG_FAT         2
+#define DISABILITY_FLAG_EPILEPSY    4
+#define DISABILITY_FLAG_DEAF        8
+#define DISABILITY_FLAG_MUTE        16
+
 // String identifiers for associative list lookup
 
 // mob/var/list/mutations
@@ -323,6 +330,7 @@ var/MAX_EXPLOSION_RANGE = 14
 #define FAT				6
 #define HUSK			7
 #define NOCLONE			8
+#define OBESITY         9
 
 
 	// Extra powers:
@@ -739,8 +747,8 @@ var/list/RESTRICTED_CAMERA_NETWORKS = list( //Those networks can only be accesse
 
 #define RAD_ABSORB 4096
 #define REQUIRE_LIGHT 8192
-
 #define IS_SYNTHETIC 16384
+#define CAN_BE_FAT   32768
 
 //Language flags.
 #define WHITELISTED 1  		// Language is available if the speaker is whitelisted.

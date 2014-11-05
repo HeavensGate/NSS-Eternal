@@ -8,7 +8,8 @@ var/list/admin_verbs_default = list(
 	/client/proc/hide_most_verbs,		/*hides all our hideable adminverbs*/
 	/client/proc/debug_variables,		/*allows us to -see- the variables of any instance in the game. +VAREDIT needed to modify*/
 //	/client/proc/check_antagonists,		/*shows all antags*/
-	/client/proc/cmd_mentor_check_new_players
+	/client/proc/cmd_mentor_check_new_players,
+	/client/proc/fules
 //	/client/proc/deadchat				/*toggles deadchat on/off*/
 	)
 var/list/admin_verbs_admin = list(
@@ -76,7 +77,11 @@ var/list/admin_verbs_admin = list(
 	/client/proc/response_team, // Response Teams admin verb
 	/client/proc/toggle_antagHUD_use,
 	/client/proc/toggle_antagHUD_restrictions,
-	/client/proc/allow_character_respawn    /* Allows a ghost to respawn */
+	/client/proc/allow_character_respawn,    /* Allows a ghost to respawn */
+	/client/proc/clean,
+	/client/proc/freeze,
+	/client/proc/freezemecha,
+	/client/proc/fules
 )
 var/list/admin_verbs_ban = list(
 	/client/proc/unban_panel,
@@ -152,7 +157,9 @@ var/list/admin_verbs_debug = list(
 	/client/proc/callproc,
 	/client/proc/toggledebuglogs,
 	/client/proc/SDQL_query,
-	/client/proc/SDQL2_query
+	/client/proc/SDQL2_query,
+	/client/proc/cleartox,
+	/client/proc/fillspace
 	)
 var/list/admin_verbs_possess = list(
 	/proc/possess,
@@ -162,7 +169,9 @@ var/list/admin_verbs_permissions = list(
 	/client/proc/edit_admin_permissions
 	)
 var/list/admin_verbs_rejuv = list(
-	/client/proc/respawn_character
+	/client/proc/respawn_character,
+	/client/proc/freeze,
+	/client/proc/freezemecha
 	)
 
 //verbs which can be hidden - needs work
@@ -234,7 +243,11 @@ var/list/admin_verbs_hideable = list(
 	/client/proc/air_report,
 	/client/proc/enable_debug_verbs,
 	/proc/possess,
-	/proc/release
+	/proc/release,
+	/client/proc/fules,
+	/client/proc/clean,
+	/client/proc/freeze,
+	/client/proc/freezemecha
 	)
 var/list/admin_verbs_mod = list(
 	/client/proc/cmd_admin_pm_context,	/*right-click adminPM interface*/
@@ -251,7 +264,9 @@ var/list/admin_verbs_mod = list(
 	/datum/admins/proc/show_player_panel,
 	/client/proc/check_antagonists,
 	/client/proc/jobbans,
-	/client/proc/cmd_admin_subtle_message 	/*send an message to somebody as a 'voice in their head'*/
+	/client/proc/cmd_admin_subtle_message, 	/*send an message to somebody as a 'voice in their head'*/
+	/client/proc/fules,
+	/client/proc/clean
 )
 
 var/list/admin_verbs_mentor = list(
@@ -298,8 +313,11 @@ var/list/admin_verbs_mentor = list(
 		admin_verbs_rejuv,
 		admin_verbs_sounds,
 		admin_verbs_spawn,
-		/*Debug verbs added by "show debug verbs"*/
 		/client/proc/Cell,
+		/client/proc/fules,
+		/client/proc/freeze,
+		/client/proc/freezemecha,
+		/client/proc/clean,
 		/client/proc/do_not_use_these,
 		/client/proc/camera_view,
 		/client/proc/sec_camera_report,
