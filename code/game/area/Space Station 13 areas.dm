@@ -1416,7 +1416,7 @@ var/list/ghostteleportlocs = list()
 	icon_state = "toxtest"
 
 /area/rnd/mixing
-	name = "\improper Demolotions Lab"
+	name = "\improper Demolitions Lab"
 	icon_state = "toxmix"
 
 /area/rnd/misc_lab
