@@ -3,7 +3,7 @@
 	set name = "Who"
 	set category = "OOC"
 
-	var/msg = "<b>Current Crew Members:</b>\n"
+	var/msg = "<b>Current Crew:</b>\n"
 
 	var/list/Lines = list()
 	for(var/client/C in clients)
@@ -37,7 +37,7 @@
 	for(var/line in sortList(Lines))
 		msg += "[line]\n"
 
-	msg += "<b>Total Crew Members: [length(Lines)]</b>"
+	msg += "<b>Total Crew: [length(Lines)]</b>"
 	src << msg
 
 /client/verb/staffwho()

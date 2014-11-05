@@ -58,7 +58,8 @@ var/global/datum/controller/gameticker/ticker
 	'sound/music/lobby/ForestCredits.ogg',\
 	'sound/music/lobby/NIN_Rightwhereitbelongs.ogg',\
 	'sound/music/lobby/Tron.ogg',\
-	'sound/music/lobby/techno.ogg')
+	'sound/music/lobby/techno.ogg',\
+	'sound/music/lobby/anomaly_radio.ogg')
 	do
 		pregame_timeleft = 180
 		world << "<B><FONT color='blue'>Welcome to the pre-game lobby!</FONT></B>"
