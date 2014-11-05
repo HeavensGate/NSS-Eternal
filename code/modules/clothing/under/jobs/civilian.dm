@@ -21,16 +21,16 @@
 /obj/item/clothing/under/rank/cargo
 	name = "quartermaster's jumpsuit"
 	desc = "It's a jumpsuit worn by the quartermaster. It's specially designed to prevent back injuries caused by pushing paper."
-	icon_state = "qm"
+	icon_state = "cargo"
 	item_state = "cargo"
-	item_color = "qm"
+	item_color = "cargo"
 	flags = FPRINT | TABLEPASS | ONESIZEFITSALL
 
 
 /obj/item/clothing/under/rank/cargotech
 	name = "cargo technician's jumpsuit"
 	desc = "Shooooorts! They're comfy and easy to wear!"
-	icon_state = "cargotech"
+	icon_state = "cargo"
 	item_state = "cargo"
 	item_color = "cargo"
 	flags = FPRINT | TABLEPASS | ONESIZEFITSALL
@@ -49,6 +49,7 @@
 	desc = "It's an apron which is given only to the most <b>hardcore</b> chefs in space."
 	name = "chef's uniform"
 	icon_state = "chef"
+	item_state = "chef"
 	item_color = "chef"
 	flags = FPRINT | TABLEPASS | ONESIZEFITSALL
 
@@ -66,7 +67,7 @@
 	desc = "It's a jumpsuit worn by someone who works in the position of \"Head of Personnel\"."
 	name = "head of personnel's jumpsuit"
 	icon_state = "hop"
-	item_state = "b_suit"
+	item_state = "hop"
 	item_color = "hop"
 	flags = FPRINT | TABLEPASS | ONESIZEFITSALL
 
@@ -83,7 +84,7 @@
 	desc = "It's a jumpsuit designed to protect against minor plant-related hazards."
 	name = "botanist's jumpsuit"
 	icon_state = "hydroponics"
-	item_state = "g_suit"
+	item_state = "hydroponics"
 	item_color = "hydroponics"
 	permeability_coefficient = 0.50
 	flags = FPRINT | TABLEPASS | ONESIZEFITSALL
@@ -92,9 +93,9 @@
 /obj/item/clothing/under/rank/internalaffairs
 	desc = "The plain, professional attire of an Internal Affairs Agent. The collar is <i>immaculately</i> starched."
 	name = "Internal Affairs uniform"
-	icon_state = "internalaffairs"
-	item_state = "internalaffairs"
-	item_color = "internalaffairs"
+	icon_state = "sl_suit"
+	item_state = "sl_suit"
+	item_color = "sl_suit"
 	flags = FPRINT | TABLEPASS | ONESIZEFITSALL
 
 
@@ -166,9 +167,9 @@
 /obj/item/clothing/under/librarian
 	name = "sensible suit"
 	desc = "It's very... sensible."
-	icon_state = "red_suit"
-	item_state = "red_suit"
-	item_color = "red_suit"
+	icon_state = "dark_red"
+	item_state = "dark_red"
+	item_color = "dark_red"
 	flags = FPRINT | TABLEPASS | ONESIZEFITSALL
 
 /obj/item/clothing/under/mime
@@ -183,6 +184,6 @@
 	desc = "It's a snappy jumpsuit with a sturdy set of overalls. It is very dirty."
 	name = "shaft miner's jumpsuit"
 	icon_state = "miner"
-	item_state = "miner"
+	item_state = "brown"
 	item_color = "miner"
 	flags = FPRINT | TABLEPASS | ONESIZEFITSALL
