@@ -4810,7 +4810,7 @@
 "bOz" = (/obj/structure/cable{d1 = 1; d2 = 2; icon_state = "1-2"; pixel_y = 0},/obj/machinery/atmospherics/pipe/simple/hidden/supply{dir = 4},/turf/simulated/floor/plating,/area/maintenance/asmaint)
 "bOA" = (/obj/machinery/atmospherics/pipe/manifold/hidden/supply{dir = 4},/mob/living/simple_animal/mouse,/turf/simulated/floor/plating,/area/maintenance/asmaint)
 "bOB" = (/turf/simulated/floor/plating,/area/maintenance/asmaint)
-"bOC" = (/obj/structure/closet,/obj/machinery/light/small{dir = 4},/obj/item/weapon/bikehorn/rubberducky{attack_verb = list("robusts, HONKED, shitcuritied, beat"); desc = "A mean looking baton, that seems to feel a little strange.. What could that mean?"; icon = 'icons/obj/weapons.dmi'; icon_state = "stunbaton"; item_state = "baton"; name = "stunbaton"},/turf/simulated/floor/plating,/area/maintenance/fpmaint)
+"bOC" = (/obj/structure/closet,/obj/machinery/light/small{dir = 4},/turf/simulated/floor/plating,/area/maintenance/fpmaint)
 "bOD" = (/obj/machinery/door/firedoor,/obj/machinery/door/poddoor/shutters{density = 0; dir = 4; icon_state = "shutter0"; id = "acute2"; name = "Acute Two Privacy Shutters"; opacity = 0},/turf/simulated/floor{dir = 8; icon_state = "whitered"},/area/medical/sleeper)
 "bOE" = (/turf/simulated/floor{icon_state = "white_2"},/area/medical/medbay2)
 "bOF" = (/obj/structure/window/reinforced{dir = 8},/obj/structure/window/reinforced{dir = 4},/obj/structure/grille,/obj/structure/window/reinforced{dir = 1},/obj/machinery/door/poddoor/shutters{density = 0; dir = 8; icon_state = "shutter0"; id = "cmooffice"; name = "CMO Office Privacy Shutters"; opacity = 0},/turf/simulated/floor/plating,/area/medical/cmo)
