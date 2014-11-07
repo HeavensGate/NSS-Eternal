@@ -54,7 +54,7 @@
 			return
 		cmd_admin_irc_pm()
 		return
-		
+
 
 
 	//Logs all hrefs
@@ -161,8 +161,11 @@
 	send_resources()
 
 	if(prefs.lastchangelog != changelog_hash) //bolds the changelog button on the interface so we know there are updates.
-		winset(src, "rpane.changelog", "background-color=#eaeaea;font-style=bold")
-
+		winset(src, "rpane.changelog", "background-color=#5DFC0A;font-style=bold")
+		src << "\green<b> New changelog available!<br></b>"
+	if(prefs.readrules != read_the_rules)
+		winset(src, "rpane.rulesb", "background-color=#FC1501;font-style=bold")
+		src << "\blue<b>Welcome [ckey], to Heavens Gate Station! If this is your first time playing with us please read our rules!<br>If not, the rules may have been updated or preferences reset.<br>Please click the red rules button in the top right of your screen to disable this message.</b>"
 
 	//////////////
 	//DISCONNECT//
@@ -254,7 +257,7 @@
 
 //send resources to the client. It's here in its own proc so we can move it around easiliy if need be
 /client/proc/send_resources()
-	
+
 	getFiles(
 		'html/search.js',
 		'html/panels.css',
