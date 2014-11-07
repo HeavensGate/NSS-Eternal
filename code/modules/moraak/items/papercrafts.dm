@@ -12,6 +12,8 @@
 	force = 5
 	sharp = 1
 	w_class = 2
+	matter = list("metal" = 12000)
+	origin_tech = "materials=1"
 	attack_verb = list("slices", "cuts", "stabs", "jabs")
 
 	suicide_act(mob/user)
@@ -35,7 +37,7 @@
 	..()
 
 /obj/item/weapon/scissors/assembly //So you can put it together!
-	name = "Scissor Assembly"
+	name = "scissor Assembly"
 	desc = "Two parts of a scissor loosely combined"
 	force = 3
 
@@ -65,7 +67,7 @@
 	return
 
 /obj/item/weapon/papercrafts/square
-	name = "Paper Square"
+	name = "paper square"
 	icon_state = "paperSquare"
 	item_state = "paper"
 
