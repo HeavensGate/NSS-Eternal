@@ -41,6 +41,7 @@ datum/preferences
 
 	//game-preferences
 	var/lastchangelog = ""				//Saved changlog filesize to detect if there was a change
+	var/readrules = ""
 	var/ooccolor = "#b82e00"
 	var/be_special = 0					//Special role selection
 	var/UI_style = "Midnight"

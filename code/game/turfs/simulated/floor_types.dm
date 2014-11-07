@@ -28,6 +28,9 @@
 				name = n
 
 
+/turf/simulated/floor/steps
+	name = "steps"
+	icon_state = "ramptop"
 
 /turf/simulated/floor/wood
 	name = "floor"
@@ -154,7 +157,7 @@
 	name = "skipjack floor"
 	oxygen = 0
 	nitrogen = MOLES_N2STANDARD + MOLES_O2STANDARD
-	
+
 /turf/simulated/floor/beach
 	name = "Beach"
 	icon = 'icons/misc/beach.dmi'
