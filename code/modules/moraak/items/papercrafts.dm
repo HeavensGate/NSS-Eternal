@@ -4,7 +4,7 @@
 
 //All of the scissor stuff
 /obj/item/weapon/scissors
-	name = "Scissors"
+	name = "scissors"
 	desc = "Those are scissors. Don't run with them!"
 	icon = 'icons/moraak/items/improvised.dmi'
 	icon_state = "scissor"
