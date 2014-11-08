@@ -58,7 +58,7 @@
 		greet_wizard(wizard)
 
 	spawn (rand(waittime_l, waittime_h))
-		send_intercept()
+//		send_intercept()
 	..()
 	return
 
