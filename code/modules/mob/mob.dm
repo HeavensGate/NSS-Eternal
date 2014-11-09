@@ -142,6 +142,7 @@
 var/list/slot_equipment_priority = list( \
 		slot_back,\
 		slot_wear_id,\
+		slot_wear_pda,\
 		slot_w_uniform,\
 		slot_wear_suit,\
 		slot_wear_mask,\
@@ -999,7 +1000,7 @@ mob/proc/yank_out_object()
 			var/datum/wound/internal_bleeding/I = new (15)
 			affected.wounds += I
 			H.custom_pain("Something tears wetly in your [affected] as [selection] is pulled free!", 1)
-		
+
 		if (ishuman(U))
 			var/mob/living/carbon/human/human_user = U
 			human_user.bloody_hands(H)

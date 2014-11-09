@@ -517,6 +517,7 @@ proc/get_damage_icon_part(damage_state, body_part)
 	update_mutantrace(0)
 	update_inv_w_uniform(0)
 	update_inv_wear_id(0)
+	update_inv_wear_pda(0)
 	update_inv_gloves(0)
 	update_inv_glasses(0)
 	update_inv_ears(0)
@@ -572,7 +573,7 @@ proc/get_damage_icon_part(damage_state, body_part)
 		overlays_standing[UNIFORM_LAYER]	= null
 		// This really, really seems like it should not be mixed in the middle of display code...
 		// Automatically drop anything in store / id / belt if you're not wearing a uniform.	//CHECK IF NECESARRY
-		for( var/obj/item/thing in list(r_store, l_store, wear_id, belt) )						//
+		for( var/obj/item/thing in list(r_store, l_store, wear_id, wear_pda, belt) )						//
 			if(thing)																			//
 				u_equip(thing)																	//
 				if (client)																		//
@@ -933,6 +934,10 @@ proc/get_damage_icon_part(damage_state, body_part)
 
 	if(update_icons)   update_icons()
 
+
+/mob/living/carbon/human/update_inv_wear_pda(var/update_icons=1)
+	if(wear_pda)			wear_pda.screen_loc = ui_pda
+	if(update_icons)	update_icons()
 
 // Used mostly for creating head items
 /mob/living/carbon/human/proc/generate_head_icon()
