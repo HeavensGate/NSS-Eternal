@@ -141,18 +141,18 @@
 	//Atmos
 	var/atmos_suitable = 1
 
-	var/atom/A = src.loc		
+	var/atom/A = src.loc
 
 	if(istype(A,/turf))
-		var/turf/T = A	
-		
+		var/turf/T = A
+
 		var/datum/gas_mixture/Environment = T.return_air()
-	
+
 		if(Environment)
-			
+
 			if( abs(Environment.temperature - bodytemperature) > 40 )
 				bodytemperature += ((Environment.temperature - bodytemperature) / 5)
-			
+
 			if(min_oxy)
 				if(Environment.oxygen < min_oxy)
 					atmos_suitable = 0
@@ -231,7 +231,7 @@
 /mob/living/simple_animal/bullet_act(var/obj/item/projectile/Proj)
 	if(!Proj || Proj.nodamage)
 		return
-	
+
 	adjustBruteLoss(Proj.damage)
 	return 0
 
@@ -365,7 +365,7 @@
 		else
 			user << "\blue this [src] is dead, medical items won't bring it back to life."
 	if(meat_type && (stat == DEAD))	//if the animal has a meat, and if it is dead.
-		if(istype(O, /obj/item/weapon/kitchenknife) || istype(O, /obj/item/weapon/butch))
+		if(istype(O, /obj/item/weapon/kitchenknife) || istype(O, /obj/item/weapon/improvised/scissorknife) || istype(O, /obj/item/weapon/butch))
 			new meat_type (get_turf(src))
 			if(prob(95))
 				del(src)
