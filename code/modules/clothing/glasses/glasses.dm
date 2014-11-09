@@ -8,7 +8,25 @@
 	//var/vision_flags = 0
 	//var/darkness_view = 0//Base human is 2
 	//var/invisa_view = 0
+	var/toggleable = 0
+	var/active = 1
 	var/prescription = 0
+
+/obj/item/clothing/glasses/attack_self(mob/user)
+	if(toggleable)
+		if(active)
+			active = 0
+			icon_state = "degoggles"
+			vision_flags = 0
+			user.update_inv_glasses()
+			usr << "You deactivate the optical matrix on the [src]."
+		else
+			active = 1
+			icon_state = initial(icon_state)
+			vision_flags = initial(vision_flags)
+			user.update_inv_glasses()
+			usr << "You activate the optical matrix on the [src]."
+
 
 /obj/item/clothing/glasses/meson
 	name = "Optical Meson Scanner"
@@ -17,11 +35,18 @@
 	item_state = "glasses"
 	origin_tech = "magnets=2;engineering=2"
 	vision_flags = SEE_TURFS
+	icon_action_button = "action_meson"
+	toggleable = 1
+
 
 /obj/item/clothing/glasses/meson/prescription
 	name = "prescription mesons"
 	desc = "Optical Meson Scanner with prescription lenses."
 	prescription = 1
+	icon_action_button = "action_material"
+	toggleable = 1
+
+
 
 /obj/item/clothing/glasses/science
 	name = "Science Goggles"
@@ -63,6 +88,7 @@
 	icon_state = "glasses"
 	item_state = "glasses"
 	prescription = 1
+	toggleable = 1
 
 /obj/item/clothing/glasses/regular/hipster
 	name = "Prescription Glasses"
@@ -187,21 +213,25 @@
 	desc = "Used for seeing walls, floors, and stuff through anything."
 	icon_state = "meson"
 	origin_tech = "magnets=3;syndicate=4"
+	icon_action_button = "action_meson"
 
 /obj/item/clothing/glasses/thermal/monocle
 	name = "Thermoncle"
 	desc = "A monocle thermal."
 	icon_state = "thermoncle"
 	flags = null //doesn't protect eyes because it's a monocle, duh
+	toggleable = 0
 
 /obj/item/clothing/glasses/thermal/eyepatch
 	name = "Optical Thermal Eyepatch"
 	desc = "An eyepatch with built-in thermal optics"
 	icon_state = "eyepatch"
 	item_state = "eyepatch"
+	toggleable = 0
 
 /obj/item/clothing/glasses/thermal/jensen
 	name = "Optical Thermal Implants"
 	desc = "A set of implantable lenses designed to augment your vision"
 	icon_state = "thermalimplants"
 	item_state = "syringe_kit"
+	toggleable = 0
