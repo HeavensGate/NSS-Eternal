@@ -118,6 +118,11 @@
 		name = "Ponytail 3"
 		icon_state = "hair_ponytail3"
 
+	ponytail4
+		name = "Ponytail 4"
+		icon_state = "hair_ponytail4"
+		gender = FEMALE
+
 	sideponytail
 		name = "Side Ponytail"
 		icon_state = "hair_stail"
@@ -156,11 +161,29 @@
 		gender = FEMALE
 		species_allowed = list("Human","Unathi")
 
+	beehive2
+		name = "Beehive 2"
+		icon_state = "hair_beehive2"
+		gender = FEMALE
+
+
 	bobcurl
 		name = "Bobcurl"
 		icon_state = "hair_bobcurl"
 		gender = FEMALE
 		species_allowed = list("Human","Unathi")
+
+	father
+		name = "Father"
+		icon_state = "hair_father"
+		gender = MALE
+
+	reversemohawk
+		name = "Reverse Mohawk"
+		icon_state = "hair_reversemohawk"
+		gender = MALE
+
+
 
 	bob
 		name = "Bob"
@@ -192,6 +215,11 @@
 	devillock
 		name = "Devil Lock"
 		icon_state = "hair_devilock"
+
+	longemo
+		name = "Long Emo"
+		icon_state = "hair_emolong"
+		gender = FEMALE
 
 	dreadlocks
 		name = "Dreadlocks"
@@ -284,6 +312,11 @@
 	braid
 		name = "Floorlength Braid"
 		icon_state = "hair_braid"
+		gender = FEMALE
+
+	mbraid
+		name = "Medium Braid"
+		icon_state = "hair_shortbraid"
 		gender = FEMALE
 
 	braid2
