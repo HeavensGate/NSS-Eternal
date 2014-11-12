@@ -115,7 +115,7 @@
 				user << "<span class='notice'>You begin removing the support lines.</span>"
 				playsound(src, 'sound/items/Screwdriver.ogg', 100, 1)
 
-				sleep(40)
+				sleep(80)
 				if( !istype(src, /turf/simulated/wall/r_wall) || !user || !W || !T )	return
 
 				if( d_state == 1 && user.loc == T && user.get_active_hand() == W )
@@ -145,7 +145,7 @@
 					user << "<span class='notice'>You begin slicing through the metal cover.</span>"
 					playsound(src, 'sound/items/Welder.ogg', 100, 1)
 
-					sleep(60)
+					sleep(120)
 					if( !istype(src, /turf/simulated/wall/r_wall) || !user || !WT || !WT.isOn() || !T )	return
 
 					if( d_state == 2 && user.loc == T && user.get_active_hand() == WT )
@@ -161,7 +161,7 @@
 				user << "<span class='notice'>You begin slicing through the metal cover.</span>"
 				playsound(src, 'sound/items/Welder.ogg', 100, 1)
 
-				sleep(40)
+				sleep(80)
 				if( !istype(src, /turf/simulated/wall/r_wall) || !user || !W || !T )	return
 
 				if( d_state == 2 && user.loc == T && user.get_active_hand() == W )
@@ -176,7 +176,7 @@
 				user << "<span class='notice'>You struggle to pry off the cover.</span>"
 				playsound(src, 'sound/items/Crowbar.ogg', 100, 1)
 
-				sleep(100)
+				sleep(200)
 				if( !istype(src, /turf/simulated/wall/r_wall) || !user || !W || !T )	return
 
 				if( d_state == 3 && user.loc == T && user.get_active_hand() == W )
@@ -191,7 +191,7 @@
 				user << "<span class='notice'>You start loosening the anchoring bolts which secure the support rods to their frame.</span>"
 				playsound(src, 'sound/items/Ratchet.ogg', 100, 1)
 
-				sleep(40)
+				sleep(80)
 				if( !istype(src, /turf/simulated/wall/r_wall) || !user || !W || !T )	return
 
 				if( d_state == 4 && user.loc == T && user.get_active_hand() == W )
@@ -208,7 +208,7 @@
 					user << "<span class='notice'>You begin slicing through the support rods.</span>"
 					playsound(src, 'sound/items/Welder.ogg', 100, 1)
 
-					sleep(100)
+					sleep(200)
 					if( !istype(src, /turf/simulated/wall/r_wall) || !user || !WT || !WT.isOn() || !T )	return
 
 					if( d_state == 5 && user.loc == T && user.get_active_hand() == WT )
@@ -225,7 +225,7 @@
 				user << "<span class='notice'>You begin slicing through the support rods.</span>"
 				playsound(src, 'sound/items/Welder.ogg', 100, 1)
 
-				sleep(70)
+				sleep(140)
 				if( !istype(src, /turf/simulated/wall/r_wall) || !user || !W || !T )	return
 
 				if( d_state == 5 && user.loc == T && user.get_active_hand() == W )
@@ -241,7 +241,7 @@
 				user << "<span class='notice'>You struggle to pry off the outer sheath.</span>"
 				playsound(src, 'sound/items/Crowbar.ogg', 100, 1)
 
-				sleep(100)
+				sleep(200)
 				if( !istype(src, /turf/simulated/wall/r_wall) || !user || !W || !T )	return
 
 				if( user.loc == T && user.get_active_hand() == W )
@@ -256,7 +256,7 @@
 
 		user << "<span class='notice'>You begin to drill though the wall.</span>"
 
-		sleep(200)
+		sleep(400)
 		if( !istype(src, /turf/simulated/wall/r_wall) || !user || !W || !T )	return
 
 		if( user.loc == T && user.get_active_hand() == W )
