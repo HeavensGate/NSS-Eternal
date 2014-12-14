@@ -8,7 +8,7 @@
 Staticcharged - Host
 Pdactyl - Head of Administration
 Jakkar - Infernal Affairs
-SardinesQ - Head Moderator
+SardinesQ - Moderator
 Pawoverlord - Developer
 CitationNeeded - Administrator
 Woothie - Research Director 
@@ -18,4 +18,4 @@ Davnik - Developer
 killer99603 - Moderator
 SgtKillemall585 - Moderator
 ToxicZero - Moderator
-Moraak - Developer
+Dalekfodder - Developer
